@@ -620,7 +620,7 @@ body{
       position: absolute;
       z-index: 1000;
       margin-left: 950px;
-      margin-top: 260px;
+      margin-top: 360px;
 
       @media only screen and (max-width: 376px){
         height: 200px;
@@ -668,20 +668,19 @@ body{
         }
       }
     }
-    .stages{
-      margin-left: 60px;
-      margin-right: 60px;
-      margin-top: 120px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      grid-template-areas:
-        "stage1 stage2 tallStage"
-        "stage4 stage5 tallStage"
-        "stage6 wideStage wideStage";
-      grid-gap: 25px;
-
+    .stages-outer{
       @media only screen and (max-width: 376px){
+        width: 335px;
+        overflow: hidden;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .stages{
+        margin-left: 60px;
+        margin-right: 60px;
+        margin-top: 120px;
+        display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
         grid-template-areas:
@@ -689,86 +688,170 @@ body{
         "stage4 stage5 tallStage"
         "stage6 wideStage wideStage";
         grid-gap: 25px;
-      }
+        transition: .4s;
 
-      .number1{
-        grid-area: stage1;
         @media only screen and (max-width: 376px){
-          .paper{
-            padding-top: 50px;
-          }
+          width: 335px;
+          margin-left: 0;
+          grid-template-columns: repeat(5, 335px);
+          grid-template-rows: 2fr 3fr 4.5fr;
+          grid-template-areas:"pad pad pad pad pad"
+        "stage1 tallStage stage4 stage6 wideStage"
+        "stage2 tallStage stage5 stage6 wideStage";
+          grid-gap: 0;
         }
-      }
-      .number2{
-        grid-area: stage2;
-      }
-      .number3{
-        grid-area: tallStage;
-      }
-      .number4{
-        grid-area: stage4;
-      }
-      .number5{
-        grid-area: stage5;
-      }
-      .number6{
-        grid-area: stage6;
-      }
 
-      .number7{
-        grid-area: wideStage;
-
-        .paper{
-          .description{
-            width: 446px;
-          }
-        }
-      }
-
-      .stage{
-        .texture{
-          width: 100%;
-          height: 100%;
-          background: url("resources/burner.png");
-          mix-blend-mode: color-burn;
-
-          .paper{
+        .pad{
+          display: none;
+          grid-area: pad;
+          .texture {
             width: 100%;
             height: 100%;
-            background: url("resources/paper.png");
-            display: grid;
-            grid-template-columns: 1fr 15fr;
-
-            .number{
-              margin-top: 15px;
-              margin-left: 15px;
-              display: inline-flex;
-              justify-content: center;
-              align-items: center;
-              width: 36px;
-              height: 36px;
-              border-radius: 50%;
-              z-index: 999;
-              background: #ffffff;
-              color: #313131;
-              font-family: "Golos Text";
-              font-size: 20px;
-              font-style: normal;
-              font-weight: 600;
-              line-height: 120%; /* 24px */
-              text-align: center;
-            }
-            .description{
-              margin: 15px;
-              z-index: 999;
-              color: #313131;
-              font-family: "Golos Text";
-              font-size: 20px;
-              font-style: normal;
-              font-weight: 500;
-              line-height: 120%; /* 24px */
+            background: url("resources/burner.png");
+            mix-blend-mode: color-burn;
+            .paper {
+              width: 100%;
+              height: 100%;
+              background: url("resources/paper.png");
             }
           }
+          @media only screen and (max-width: 376px){
+            display: block;
+          }
+        }
+
+        .number1{
+          grid-area: stage1;
+        }
+        .number2{
+          grid-area: stage2;
+        }
+        .number3{
+          grid-area: tallStage;
+        }
+        .number4{
+          grid-area: stage4;
+        }
+        .number5{
+          grid-area: stage5;
+        }
+        .number6{
+          grid-area: stage6;
+        }
+
+        .number7{
+          grid-area: wideStage;
+
+          .paper{
+            .description{
+              width: 446px;
+            }
+          }
+          @media only screen and (max-width: 376px){
+            .paper{
+              .description{
+                width: auto;
+              }
+            }
+          }
+        }
+
+        .stage{
+          .texture{
+            width: 100%;
+            height: 100%;
+            background: url("resources/burner.png");
+            mix-blend-mode: color-burn;
+
+            .paper{
+              width: 100%;
+              height: 100%;
+              background: url("resources/paper.png");
+              display: grid;
+              grid-template-columns: 1fr 15fr;
+
+              .number{
+                margin-top: 15px;
+                margin-left: 15px;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                z-index: 999;
+                background: #ffffff;
+                color: #313131;
+                font-family: "Golos Text";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%; /* 24px */
+                text-align: center;
+              }
+              .description{
+                margin: 15px;
+                z-index: 999;
+                color: #313131;
+                font-family: "Golos Text";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 120%; /* 24px */
+
+                @media only screen and (max-width: 376px){
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .stages-buttons{
+      display: none;
+      width: 250px;
+      justify-content: space-evenly;
+      margin: 30px auto 0;
+
+      @media only screen and (max-width: 376px){
+        display: flex;
+      }
+
+      .back-button{
+        cursor: pointer;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: #1F1F1F;
+
+          svg{
+            transform: rotate(180deg);
+          }
+      }
+      .next-button{
+          cursor: pointer;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          background: #1F1F1F;
+      }
+      .disabled{
+        background: #D6D6D6;
+      }
+      .pages{
+        width: 75px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .dot{
+          width: 10px;
+          height: 10px;
+          background: #D9D9D9;
+          border-radius: 50%;
+        }
+        .current{
+          background: #313131;
         }
       }
     }
@@ -779,10 +862,111 @@ body{
     width: 1366px;
     margin-bottom: 140px;
 
+    @media only screen and (max-width: 376px){
+      margin-top: 120px;
+      width: 375px;
+      margin-bottom: 100px;
+    }
+
+    .buttons, .buttonsMobile{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media only screen and (max-width: 376px){
+        width: 150px;
+        margin: 40px auto 0;
+      }
+
+      .back-button{
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #1F1F1F;
+
+        svg{
+          transform: rotate(180deg);
+        }
+
+        @media only screen and (min-width: 376px){
+          &:hover{
+            background: #FBCE51;
+          }
+        }
+
+        @media only screen and (max-width: 376px){
+          width: 36px;
+          height: 36px;
+          svg{
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+      .next-button{
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #1F1F1F;
+
+        @media only screen and (min-width: 376px){
+          &:hover{
+            background: #FBCE51;
+          }
+        }
+        @media only screen and (max-width: 376px){
+          width: 36px;
+          height: 36px;
+          svg{
+            width: 36px;
+            height: 36px;
+          }
+        }
+      }
+      .disabled{
+        background: #D6D6D6;
+      }
+      .pages{
+        margin: 0 14px;
+        color: rgba(49, 49, 49, 0.6);
+        font-family: "Golos Text";
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%; /* 19.2px */
+        display: flex;
+
+        .current-page{
+          color: rgb(49, 49, 49);
+        }
+        .total-pages{
+
+        }
+      }
+    }
+
+    .buttons{
+      @media only screen and (max-width: 376px){
+        display: none;
+      }
+    }
+    .buttonsMobile{
+      @media only screen and (min-width: 376px){
+        display: none;
+      }
+    }
+
     .players-header{
       margin: 0 70px;
       display: flex;
       justify-content: space-between;
+
+      @media only screen and (max-width: 376px){
+        margin: 0 20px;
+      }
+
       .title{
         color: #313131;
         font-family: Merriweather;
@@ -791,62 +975,20 @@ body{
         font-weight: 400;
         line-height: 120%; /* 64.8px */
         text-transform: uppercase;
-      }
-      .buttons{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .back-button{
-          cursor: pointer;
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          background: #1F1F1F;
 
-          svg{
-            transform: rotate(180deg);
-          }
-
-          &:hover{
-            background: #FBCE51;
-          }
-        }
-        .pages{
-          margin: 0 14px;
-          color: rgba(49, 49, 49, 0.6);
-          font-family: "Golos Text";
-          font-size: 16px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 120%; /* 19.2px */
-          display: flex;
-
-          .current-page{
-            color: rgb(49, 49, 49);
-          }
-          .total-pages{
-
-          }
-        }
-        .next-button{
-          cursor: pointer;
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          background: #1F1F1F;
-
-          &:hover{
-            background: #FBCE51;
-          }
-        }
-        .disabled{
-          background: #D6D6D6;
+        @media only screen and (max-width: 376px){
+          font-size: 36px;
+          line-height: 110%;
         }
       }
     }
     .carousel-wrapper{
       margin: 60px 70px 0;
       overflow: hidden;
+
+      @media only screen and (max-width: 376px){
+        margin: 40px 10px 0;
+      }
       .carousel{
         transition: .4s;
         margin-left: 45px;
@@ -854,18 +996,31 @@ body{
         flex-wrap: nowrap;
         gap: 90px;
 
+        @media only screen and (max-width: 376px){
+          margin-left: 0;
+          gap: 0;
+        }
+
         .carousel-item{
           display: flex;
           flex-direction: column;
           align-items: center;
+
           .carousel-image{
             width: 320px;
             height: 320px;
             border-radius: 50%;
             overflow: hidden;
             background: url("resources/paper.png");
+
+            @media only screen and (max-width: 376px){
+              width: 244px;
+              height: 244px;
+            }
             img{
-              margin-top: 20px;
+              width: 235px;
+              height: 235px;
+              margin-top: 10px;
             }
           }
           .carousel-description{
@@ -874,6 +1029,10 @@ body{
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            @media only screen and (max-width: 376px){
+              width: 355px;
+            }
             .player-name{
               color: #313131;
               font-family: "Golos Text";
@@ -904,6 +1063,10 @@ body{
               border-radius: 62px;
               border: 1px solid #3057A2;
               padding: 12px;
+
+              @media only screen and (max-width: 376px){
+                padding: 6px 12px;
+              }
             }
           }
         }
@@ -914,6 +1077,10 @@ body{
     width: 1366px;
     background: #E9DED4;
 
+    @media only screen and (max-width: 376px){
+      width: 375px;
+    }
+
     .footer-text{
       padding: 40px 72px 72px;
       color: rgba(49, 49, 49, 0.6);
@@ -922,16 +1089,10 @@ body{
       font-style: normal;
       font-weight: 400;
       line-height: 120%; /* 19.2px */
+
+      @media only screen and (max-width: 376px){
+        padding: 40px 20px 72px;
+      }
     }
   }
 }
-
-//@media only screen and (max-width: 376px){
-//  body{
-//    .main-wrapper{
-//      overflow: hidden;
-//      width: 375px;
-//      height: 700px;
-//    }
-//  }
-//}

@@ -101,62 +101,84 @@
             <div>Будущие источники <br> обогащения васюкинцев</div>
         </div>
         <img class="plane" src="resources/plane.png" alt="">
-        <div class="stages">
-            <div class="stage number1">
+        <div class="stages-outer">
+            <div id="stagesCarousel" class="stages">
+                <div class="pad"><div class="texture"><div class="paper"></div></div></div>
+                <div class="stage number1">
                     <div class="texture">
                         <div class="paper">
                             <div class="number">1</div>
                             <div class="description">Строительство железнодорожной магистрали Москва-Васюки</div>
                         </div>
                     </div>
-            </div>
-            <div class="stage number2">
-                <div class="texture">
-                    <div class="paper">
-                        <div class="number">2</div>
-                        <div class="description">Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов</div>
+                </div>
+                <div class="stage number2">
+                    <div class="texture">
+                        <div class="paper">
+                            <div class="number">2</div>
+                            <div class="description">Открытие фешенебельной гостиницы «Проходная пешка» и других небоскрёбов</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stage number3">
+                    <div class="texture">
+                        <div class="paper">
+                            <div class="number">3</div>
+                            <div class="description">Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stage number4">
+                    <div class="texture">
+                        <div class="paper">
+                            <div class="number">4</div>
+                            <div class="description">Строительство дворца для турнира</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stage number5">
+                    <div class="texture">
+                        <div class="paper">
+                            <div class="number">5</div>
+                            <div class="description">Размещение гаражей для гостевого автотранспорта</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stage number6">
+                    <div class="texture">
+                        <div class="paper">
+                            <div class="number">6</div>
+                            <div class="description">Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stage number7">
+                    <div class="texture">
+                        <div class="paper">
+                            <div class="number">7</div>
+                            <div class="description">Создание аэропорта «Большие Васюки» <br> с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн</div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="stage number3">
-                <div class="texture">
-                    <div class="paper">
-                        <div class="number">3</div>
-                        <div class="description">Поднятие сельского хозяйства в радиусе на тысячу километров: производство овощей, фруктов, икры, шоколадных конфет</div>
-                    </div>
-                </div>
+        </div>
+        <div class="stages-buttons">
+            <div id="stagePrev" class="back-button disabled">
+                <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.4618 13.5384L27.9233 21.9999L19.4618 30.4615" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                </svg>
             </div>
-            <div class="stage number4">
-                <div class="texture">
-                    <div class="paper">
-                        <div class="number">4</div>
-                        <div class="description">Строительство дворца для турнира</div>
-                    </div>
-                </div>
+            <div class="pages">
+                <div id="dot1" class="dot current"></div>
+                <div id="dot2" class="dot"></div>
+                <div id="dot3" class="dot"></div>
+                <div id="dot4" class="dot"></div>
+                <div id="dot5" class="dot"></div>
             </div>
-            <div class="stage number5">
-                <div class="texture">
-                    <div class="paper">
-                        <div class="number">5</div>
-                        <div class="description">Размещение гаражей для гостевого автотранспорта</div>
-                    </div>
-                </div>
-            </div>
-            <div class="stage number6">
-                <div class="texture">
-                    <div class="paper">
-                        <div class="number">6</div>
-                        <div class="description">Постройка сверхмощной радиостанции для передачи всему миру сенсационных результатов</div>
-                    </div>
-                </div>
-            </div>
-            <div class="stage number7">
-                <div class="texture">
-                    <div class="paper">
-                        <div class="number">7</div>
-                        <div class="description">Создание аэропорта «Большие Васюки» <br> с регулярным отправлением почтовых самолётов и дирижаблей во все концы света, включая Лос-Анжелос и Мельбурн</div>
-                    </div>
-                </div>
+            <div id="stageNext" class="next-button">
+                <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.4618 13.5384L27.9233 21.9999L19.4618 30.4615" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                </svg>
             </div>
         </div>
     </div>
@@ -243,6 +265,23 @@
                         <div class="about-button">Подробнее</div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="buttonsMobile">
+            <div id="backButtonMobile" class="back-button disabled">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.4618 13.5384L27.9233 21.9999L19.4618 30.4615" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                </svg>
+            </div>
+            <div class="pages">
+                <div id="curPageMobile" class="current-page">1</div>
+                /
+                <div class="total-pages">6</div>
+            </div>
+            <div id="nextButtonMobile" class="next-button">
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.4618 13.5384L27.9233 21.9999L19.4618 30.4615" stroke="white" stroke-width="2" stroke-linecap="square"/>
+                </svg>
             </div>
         </div>
     </div>
